@@ -5,20 +5,17 @@ import { BreadCrumbModel } from '../pages/layouts/breadcrumb';
   providedIn: 'root'
 })
 export class Common {
-  data: BreadCrumbModel[] = []
+  readonly data = signal<BreadCrumbModel[]>([])
 
   set(data: BreadCrumbModel[]) {
 
-    this.data = data
-    
     const val: BreadCrumbModel = {
       title: "Ana Sayfa",
       icon: "home",
       url: "/"
     }
-
-    this.data = data
-    this.data.unshift(val)
+    
+    this.data.set([val, ...data])
 
   }
 
