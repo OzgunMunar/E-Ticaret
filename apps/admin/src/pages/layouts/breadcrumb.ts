@@ -33,7 +33,7 @@ export interface BreadCrumbModel {
 
 export default class Breadcrumb {
 
-  readonly data = computed(() => this.#common.data)
+  readonly data = computed(() => this.#common.data())
 
   readonly #common = inject(Common)
 

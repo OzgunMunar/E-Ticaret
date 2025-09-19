@@ -24,3 +24,5 @@ export default class Blank implements OnInit{
   readonly #common = inject(Common)
 
 }
+
+// 108. 7. dakika
