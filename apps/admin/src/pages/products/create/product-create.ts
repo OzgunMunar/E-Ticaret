@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component, inject, ViewEncapsulation } from '@
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import Blank from 'apps/admin/src/components/blank';
+import { FlexiToastService } from 'flexi-toast';
 
 @Component({
   imports: [
@@ -18,6 +19,7 @@ export default class ProductCreate {
 
   readonly #http = inject(HttpClient)
   readonly #router = inject(Router)
+  readonly #toast = inject(FlexiToastService)
 
   save(form: NgForm) {
 
@@ -27,6 +29,7 @@ export default class ProductCreate {
 
       this.#http.post("http://localhost:3000/products", form.value).subscribe(() => {
         this.#router.navigateByUrl("/products")
+        this.#toast.showToast("Başarılı", "Ürün başarıyla eklendi.", "success")
       })
 
     }

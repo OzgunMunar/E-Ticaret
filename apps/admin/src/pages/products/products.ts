@@ -1,8 +1,9 @@
-import { ChangeDetectionStrategy, Component, computed, signal, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, signal, ViewEncapsulation } from '@angular/core';
 import Blank from '../../components/blank';
 import { FlexiGridFilterDataModel, FlexiGridModule } from 'flexi-grid';
 import { httpResource } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
+import { FlexiToastService } from 'flexi-toast';
 
 export interface ProductModel {
   id: string,
@@ -31,11 +32,23 @@ export default class Products {
   readonly data = computed(() => this.result.value() ?? [])
   readonly loading = computed(() => this.result.isLoading())
 
+  readonly #toast = inject(FlexiToastService)
+
   readonly categoryFilter = signal<FlexiGridFilterDataModel[]>([
     {
       name: "Telefon",
       value: "Telefon"
     }
   ])
+
+  delete(id: string) {
+
+    this.#toast.showSwal("Ürünü Sil?", "Ürünü silmek istediğinize emin misiniz?", "Sil", () => {
+
+      this.result.reload()
+
+    })
+
+  }
 
 }
