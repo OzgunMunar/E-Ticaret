@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 
   imports: [RouterModule],
   selector: 'app-root',
-  templateUrl: '<router-outlet />',
+  template: '<router-outlet />',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 
