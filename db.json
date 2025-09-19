@@ -1,13 +1,20 @@
 {
-    "products": [
-        {
-            "id": "1",
-            "imageUrl": "https://m.media-amazon.com/images/I/71+8503v2xL._AC_UL640_FMwebp_QL65_.jpg",
-            "name": "BMW 1.5i",
-            "price": 10000000,
-            "stock": 15,
-            "categoryId": "233",
-            "categoryName": "Telefon"
-        }
-    ]
+  "products": [
+    {
+      "id": "1",
+      "imageUrl": "https://m.media-amazon.com/images/I/71+8503v2xL._AC_UL640_FMwebp_QL65_.jpg",
+      "name": "BMW 1.5i",
+      "price": 10000000,
+      "stock": 15,
+      "categoryId": "233",
+      "categoryName": "Telefon"
+    },
+    {
+      "id": "7250",
+      "name": "domates",
+      "imageUrl": "biber",
+      "price": "12",
+      "stock": "21"
+    }
+  ]
 }

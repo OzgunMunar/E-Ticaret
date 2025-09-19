@@ -10,6 +10,15 @@ language="tr"
 exportExcelFileName="products"
 (onrefresh)="result.reload()">
 
+    <ng-template flexiGridCaptionCommandTemplate>
+        <flexi-button 
+            routerLink="/products/product-create" 
+            btnIcon="add" 
+            btnColor="primary" 
+            title="Ürün Ekle" 
+            flexiToolTip />
+    </ng-template>
+
     <flexi-grid-column field="imageUrl" title="Urun Resmi" 
     textAlign="center" width="70px"
     [filterable]="false">
@@ -37,10 +46,10 @@ exportExcelFileName="products"
     <ng-template flexiGridColumnCommandTemplate let-item>
 
         <flexi-button btnIcon="edit" btnColor="info" title="Guncelle" 
-            btnSize="small" flexiToolTip/>
+            btnSize="small" flexiToolTip />
 
         <flexi-button btnIcon="delete" btnColor="danger" title="Sil" 
-            btnSize="small" flexiToolTip/>
+            btnSize="small" flexiToolTip />
 
     </ng-template>
 
