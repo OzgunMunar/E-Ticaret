@@ -122,13 +122,13 @@
         <div class="sidebar-sticky-menu">
             <!-- Örneğin önemli ve sık kullanılan menüler -->
             <a href="#" class="sticky-menu-item" title="Settings">
-                <span class="material-symbols-outlined">Ayarlar</span>
+                <span class="material-symbols-outlined">settings</span>
             </a>
             <a href="#" class="sticky-menu-item" title="Help">
-                <span class="material-symbols-outlined">Yardim</span>
+                <span class="material-symbols-outlined">help</span>
             </a>
             <a routerLink="/" class="sticky-menu-item" title="Logout">
-                <span class="material-symbols-outlined">Cikis</span>
+                <span class="material-symbols-outlined">logout</span>
             </a>
         </div>
     </div>
@@ -570,7 +570,7 @@
 <footer class="fixed-footer">
     <div class="footer-left">
         <span class="material-symbols-outlined">schedule</span>
-        <span class="time-display">April 23, 2025 14:30:45</span>
+        <span class="time-display">{{time() | date: 'dd MMMM yyyy hh:mm:ss'}}</span>
     </div>
     <div class="footer-center">
         <span>&copy; 2025 StellarAdmin - Version 1.0.2</span>
