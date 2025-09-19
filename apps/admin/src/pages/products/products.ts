@@ -1,13 +1,16 @@
-import { ChangeDetectionStrategy, Component, signal, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, signal, ViewEncapsulation } from '@angular/core';
 import Blank from '../../components/blank';
-import { FlexiGridModule } from 'flexi-grid';
+import { FlexiGridFilterDataModel, FlexiGridModule } from 'flexi-grid';
+import { httpResource } from '@angular/common/http';
 
 export interface ProductModel {
   id: string,
   name: string,
   imageUrl: string,
   price: number,
-  stock: number
+  stock: number,
+  categoryId: string,
+  categoryName: string
 }
 
 
@@ -22,13 +25,14 @@ export interface ProductModel {
 
 export default class Products {
 
-  readonly data = signal<ProductModel[]>([
+  readonly result = httpResource<ProductModel[]>(() => "http://localhost:3000/products")
+  readonly data = computed(() => this.result.value() ?? [])
+  readonly loading = computed(() => this.result.isLoading())
+
+  readonly categoryFilter = signal<FlexiGridFilterDataModel[]>([
     {
-      id:"1",
-      imageUrl: "https://m.media-amazon.com/images/I/71+8503v2xL._AC_UL640_FMwebp_QL65_.jpg",
-      name: 'BMW 1.5i',
-      price: 10000000,
-      stock: 15
+      name: "Telefon",
+      value: "Telefon"
     }
   ])
 
