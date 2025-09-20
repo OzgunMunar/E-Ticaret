@@ -35,7 +35,7 @@ export default class CreateCategory {
 
     }
   })
-  readonly data = computed(() => this.result.value() ?? initialCategory)
+  readonly data = computed(() => this.result.value() ?? {...initialCategory})
 
   readonly #http = inject(HttpClient)
   readonly #activated = inject(ActivatedRoute)

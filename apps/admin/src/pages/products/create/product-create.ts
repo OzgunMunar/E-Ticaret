@@ -39,7 +39,7 @@ export default class ProductCreate {
     }
   })
 
-  readonly data = linkedSignal(() => this.result.value() ?? initialProduct)
+  readonly data = computed(() => this.result.value() ?? {...initialProduct})
 
   readonly cardTitle = computed(() => this.id() ? 'Ürün Güncelle' : 'Ürün Ekle')
   readonly btnName = computed(() => this.id() ? 'Ürün Güncelle' : 'Ürün Ekle')
