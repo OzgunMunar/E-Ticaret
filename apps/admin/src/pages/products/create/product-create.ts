@@ -59,20 +59,20 @@ export default class ProductCreate {
 
     if (!form.valid) {
       return
+    }
+
+    const { id, ...payload } = this.data()
+
+    if (!this.id()) {
+
+      this.#http.post("http://localhost:3000/products", payload).subscribe(() => {
+        this.#router.navigateByUrl("/products")
+        this.#toast.showToast("Başarılı", "Ürün başarıyla eklendi.", "success")})
     } else {
 
-      if (!this.id()) {
-
-        this.#http.post("http://localhost:3000/products", this.data()).subscribe(() => {
-          this.#router.navigateByUrl("/products")
-          this.#toast.showToast("Başarılı", "Ürün başarıyla eklendi.", "success")})
-      } else {
-
-        this.#http.put(`http://localhost:3000/products/${this.id()}`, this.data()).subscribe(() => {
-        this.#router.navigateByUrl("/products")
-        this.#toast.showToast("Başarılı", "Ürün başarıyla güncellendi.", "info")})
-
-      }
+      this.#http.put(`http://localhost:3000/products/${this.id()}`, this.data()).subscribe(() => {
+      this.#router.navigateByUrl("/products")
+      this.#toast.showToast("Başarılı", "Ürün başarıyla güncellendi.", "info")})
 
     }
 

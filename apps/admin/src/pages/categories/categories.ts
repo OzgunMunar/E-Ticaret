@@ -6,8 +6,12 @@ import { RouterLink } from '@angular/router';
 import { FlexiToastService } from 'flexi-toast';
 
 export interface CategoryModel {
-  id: string,
+  id?: number,
   name: string
+}
+
+export const initialCategory: CategoryModel = {
+  name: ""
 }
 
 @Component({
@@ -30,7 +34,12 @@ export default class Categories {
   readonly #http = inject(HttpClient)
   readonly #toast = inject(FlexiToastService)
 
-  delete(id: string) {
+  delete(id?: number) {
+
+    if(!id) {
+      this.#toast.showToast("Hata", "Geçersiz kategori ID", "info");
+      return;
+    }
 
     this.#toast.showSwal("Kategori Sil", "Kategoriyi silmek istiyor musunuz?", "Sil",
       () => {

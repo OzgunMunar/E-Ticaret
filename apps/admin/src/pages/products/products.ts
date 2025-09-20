@@ -6,7 +6,7 @@ import { RouterLink } from '@angular/router';
 import { FlexiToastService } from 'flexi-toast';
 
 export interface ProductModel {
-  id: string,
+  id?: number,
   name: string,
   imageUrl: string,
   price: number,
@@ -16,7 +16,6 @@ export interface ProductModel {
 }
 
 export const initialProduct: ProductModel = {
-  id: "",
   name: "",
   imageUrl: "",
   price: 0,
@@ -53,7 +52,12 @@ export default class Products {
     }
   ])
 
-  delete(id: string) {
+  delete(id?: number) {
+
+    if(!id) {
+      this.#toast.showToast("Hata", "Geçersiz kategori ID", "info");
+      return;
+    }
 
     this.#toast.showSwal("Ürünü Sil?", "Ürünü silmek istediğinize emin misiniz?", "Sil", () => {
 

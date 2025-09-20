@@ -8,9 +8,29 @@
       "stock": "153",
       "categoryId": "233",
       "categoryName": "Telefon"
+    },
+    {
+      "id": "ed19",
+      "name": "MacBook",
+      "imageUrl": "https://productimages.hepsiburada.net/s/777/424-600/110000805733628.jpg/format:webp",
+      "price": 12222,
+      "stock": "334",
+      "categoryId": "132",
+      "categoryName": "Telefon"
     }
-  ], 
+  ],
   "categories": [
-    
+    {
+      "id": "76d1",
+      "name": "Bilgisayar"
+    },
+    {
+      "id": "0cfc",
+      "name": "Genel Elektronik"
+    },
+    {
+      "id": "eb82",
+      "name": "Telefon"
+    }
   ]
 }
