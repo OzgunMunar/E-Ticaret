@@ -31,7 +31,10 @@
 
                     <div class="form-group mt-2">
                         <label>Urun Birim Fiyati</label>
-                        <input ngModel name="price" type="text" class="form-control" />
+                        <input ngModel name="price"
+                            type="text" class="form-control" 
+                            mask="separator" thousandSeparator="."
+                            />
                     </div>
 
                     <div class="form-group mt-2">
