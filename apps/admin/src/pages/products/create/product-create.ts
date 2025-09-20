@@ -33,7 +33,7 @@ export default class ProductCreate {
     loader: async () => {
 
       var res = await lastValueFrom(this.#http.get<ProductModel>
-        (`http://localhost:3000/products/${this.id()}`))
+        (`apiUrl/products/${this.id()}`))
       return res
 
     }
@@ -65,12 +65,12 @@ export default class ProductCreate {
 
     if (!this.id()) {
 
-      this.#http.post("http://localhost:3000/products", payload).subscribe(() => {
+      this.#http.post("apiUrl/products", payload).subscribe(() => {
         this.#router.navigateByUrl("/products")
         this.#toast.showToast("Başarılı", "Ürün başarıyla eklendi.", "success")})
     } else {
 
-      this.#http.put(`http://localhost:3000/products/${this.id()}`, this.data()).subscribe(() => {
+      this.#http.put(`apiUrl/products/${this.id()}`, this.data()).subscribe(() => {
       this.#router.navigateByUrl("/products")
       this.#toast.showToast("Başarılı", "Ürün başarıyla güncellendi.", "info")})
 

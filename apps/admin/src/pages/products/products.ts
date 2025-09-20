@@ -37,7 +37,7 @@ export const initialProduct: ProductModel = {
 
 export default class Products {
 
-  readonly result = httpResource<ProductModel[]>(() => "http://localhost:3000/products")
+  readonly result = httpResource<ProductModel[]>(() => "apiUrl/products")
   readonly data = computed(() => this.result.value() ?? [])
   readonly loading = computed(() => this.result.isLoading())
 
@@ -61,7 +61,7 @@ export default class Products {
 
     this.#toast.showSwal("Ürünü Sil?", "Ürünü silmek istediğinize emin misiniz?", "Sil", () => {
 
-      this.#http.delete(`http://localhost:3000/products/${id}`)
+      this.#http.delete(`apiUrl/products/${id}`)
         .subscribe((res) => {
 
           this.result.reload()

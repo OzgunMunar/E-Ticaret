@@ -29,7 +29,7 @@ export default class CreateCategory {
     loader: async() => {
       
       var res = await lastValueFrom(this.#http.get<CategoryModel>
-        (`http://localhost:3000/categories/${this.id()}`))
+        (`apiUrl/categories/${this.id()}`))
       
       return res
 
@@ -60,7 +60,7 @@ export default class CreateCategory {
 
     if (!this.id()) {
       
-      this.#http.post("http://localhost:3000/categories", payload)
+      this.#http.post("apiUrl/categories", payload)
         .subscribe((res) => {
 
           console.log("yeni kategori", res)
@@ -71,7 +71,7 @@ export default class CreateCategory {
 
     } else {
 
-      this.#http.put(`http://localhost:3000/categories/${this.id()}`, this.data())
+      this.#http.put(`apiUrl/categories/${this.id()}`, this.data())
         .subscribe((res) => {
 
           this.#toast.showToast("Başarılı", "Kategori kaydı başarıyla güncellendi.", "success")
