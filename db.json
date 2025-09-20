@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "id": "1",
+      "id": "av23",
       "imageUrl": "https://m.media-amazon.com/images/I/71+8503v2xL._AC_UL640_FMwebp_QL65_.jpg",
       "name": "iPhone 75",
       "price": 30000000,
@@ -10,13 +10,13 @@
       "categoryName": "Telefon"
     },
     {
-      "id": "ed19",
+      "id": "12d2",
       "name": "MacBook",
       "imageUrl": "https://productimages.hepsiburada.net/s/777/424-600/110000805733628.jpg/format:webp",
       "price": 12222,
       "stock": "334",
-      "categoryId": "132",
-      "categoryName": "Telefon"
+      "categoryId": "76d1",
+      "categoryName": "Bilgisayar"
     }
   ],
   "categories": [

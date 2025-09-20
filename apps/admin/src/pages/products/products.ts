@@ -4,6 +4,7 @@ import { FlexiGridFilterDataModel, FlexiGridModule } from 'flexi-grid';
 import { HttpClient, httpResource } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
 import { FlexiToastService } from 'flexi-toast';
+import { CategoryModel } from '../categories/categories';
 
 export interface ProductModel {
   id?: number,
@@ -11,7 +12,7 @@ export interface ProductModel {
   imageUrl: string,
   price: number,
   stock: number,
-  categoryId: string,
+  categoryId: number,
   categoryName: string
 }
 
@@ -20,7 +21,7 @@ export const initialProduct: ProductModel = {
   imageUrl: "",
   price: 0,
   stock: 0,
-  categoryId: "132",
+  categoryId: 132,
   categoryName: "Telefon"
 }
 
@@ -29,7 +30,8 @@ export const initialProduct: ProductModel = {
   imports: [
     Blank,
     FlexiGridModule,
-    RouterLink],
+    RouterLink,
+  ],
   templateUrl: './products.html',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -38,19 +40,22 @@ export const initialProduct: ProductModel = {
 export default class Products {
 
   readonly result = httpResource<ProductModel[]>(() => "apiUrl/products")
+  readonly categoryResult = httpResource<CategoryModel[]>(() => "apiUrl/categories")
   readonly data = computed(() => this.result.value() ?? [])
   readonly loading = computed(() => this.result.isLoading())
 
   readonly #http = inject(HttpClient);
-
   readonly #toast = inject(FlexiToastService)
 
-  readonly categoryFilter = signal<FlexiGridFilterDataModel[]>([
-    {
-      name: "Telefon",
-      value: "Telefon"
-    }
-  ])
+  readonly categoryFilter = computed<FlexiGridFilterDataModel[]>(() => {
+
+    const categories = this.categoryResult.value() ?? []
+    const filters = categories.map<FlexiGridFilterDataModel>((val) => 
+      ({ name: val.name, value: val.name }))
+
+    return filters
+
+  })
 
   delete(id?: number) {
 

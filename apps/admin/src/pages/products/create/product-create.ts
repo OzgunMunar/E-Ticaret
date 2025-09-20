@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, httpResource } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component, computed, inject, linkedSignal, resource, signal, ViewEncapsulation } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -7,12 +7,15 @@ import { FlexiToastService } from 'flexi-toast';
 import { NgxMaskDirective } from 'ngx-mask';
 import { lastValueFrom } from 'rxjs';
 import { initialProduct, ProductModel } from '../products';
+import { CategoryModel } from '../../categories/categories';
+import { FlexiSelectModule } from 'flexi-select';
 
 @Component({
   imports: [
     Blank,
     FormsModule,
-    NgxMaskDirective
+    NgxMaskDirective,
+    FlexiSelectModule
   ],
   templateUrl: './product-create.html',
   encapsulation: ViewEncapsulation.None,
@@ -28,6 +31,15 @@ export default class ProductCreate {
   readonly id = signal<string | undefined>(undefined)
   readonly #active = inject(ActivatedRoute)
 
+  readonly data = linkedSignal(() => this.result.value() ?? {...initialProduct})
+  readonly cardTitle = computed(() => this.id() ? 'Ürün Güncelle' : 'Ürün Ekle')
+  readonly btnName = computed(() => this.id() ? 'Ürün Güncelle' : 'Ürün Ekle')
+  readonly breadCrumbName = computed(() => this.id() ? 'Ürün Güncelle' : 'Ürün Ekle')
+
+  readonly categoryResult = httpResource<CategoryModel[]>(() => "apiUrl/categories")
+  readonly categories = computed(() => this.categoryResult.value() ?? [])
+  readonly categoryLoading = computed(() => this.categoryResult.isLoading())
+
   readonly result = resource({
     params: () => this.id(),
     loader: async () => {
@@ -38,12 +50,6 @@ export default class ProductCreate {
 
     }
   })
-
-  readonly data = computed(() => this.result.value() ?? {...initialProduct})
-
-  readonly cardTitle = computed(() => this.id() ? 'Ürün Güncelle' : 'Ürün Ekle')
-  readonly btnName = computed(() => this.id() ? 'Ürün Güncelle' : 'Ürün Ekle')
-  readonly breadCrumbName = computed(() => this.id() ? 'Ürün Güncelle' : 'Ürün Ekle')
 
   constructor() {
     this.#active.params.subscribe((res) => {
@@ -76,6 +82,13 @@ export default class ProductCreate {
 
     }
 
+  }
+
+  setCategoryName() {
+    
+    const id = this.data().categoryId
+    const category = this.categories().find(p => p.id == id)
+    this.data.update((prevVal) => ({...prevVal, categoryName: category?.name ?? ""}))
   }
 
 }
