@@ -4,7 +4,7 @@
       "id": "av23",
       "imageUrl": "https://m.media-amazon.com/images/I/71+8503v2xL._AC_UL640_FMwebp_QL65_.jpg",
       "name": "iPhone 75",
-      "price": 30000000,
+      "price": 13000,
       "stock": "153",
       "categoryId": "233",
       "categoryName": "Telefon"
@@ -13,10 +13,19 @@
       "id": "12d2",
       "name": "MacBook",
       "imageUrl": "https://productimages.hepsiburada.net/s/777/424-600/110000805733628.jpg/format:webp",
-      "price": 12222,
+      "price": 50000,
       "stock": "334",
       "categoryId": "76d1",
       "categoryName": "Bilgisayar"
+    },
+    {
+      "id": "asf2",
+      "name": "Apple Watch",
+      "imageUrl": "https://www.apple.com/v/watch/bs/images/overview/select/product_s11__c23ym6fc09me_large_2x.png",
+      "price": 20000,
+      "stock": "122",
+      "categoryId": "0cfc",
+      "categoryName": "Genel Elektronik"
     }
   ],
   "categories": [
