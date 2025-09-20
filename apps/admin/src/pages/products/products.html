@@ -45,7 +45,7 @@ exportExcelFileName="products"
 
     <ng-template flexiGridColumnCommandTemplate let-item>
 
-        <flexi-button btnIcon="edit" btnColor="info" title="Güncelle" 
+        <flexi-button routerLink="/products/edit/{{item.id}}" btnIcon="edit" btnColor="info" title="Güncelle" 
             btnSize="small" flexiToolTip />
 
         <flexi-button btnIcon="delete" btnColor="danger" title="Sil" 
