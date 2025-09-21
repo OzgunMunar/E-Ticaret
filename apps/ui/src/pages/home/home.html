@@ -10,7 +10,7 @@
         <h2 class="section-title">Ürünler</h2>
         <div class="products-grid">
 
-            @for(item of data(); track item.id) {
+            @for(item of dataSignal(); track item.id) {
 
             <div class="product-card">
                 <img [src]="item.imageUrl"
@@ -21,6 +21,15 @@
             </div>
 
             }
+
+            <div
+                class="search-results"
+                infiniteScroll
+                [infiniteScrollDistance]="2"
+                [infiniteScrollThrottle]="50"
+                (scrolled)="onScroll()">
+
+            </div>
 
         </div>
     </div>
