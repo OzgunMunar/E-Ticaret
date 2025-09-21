@@ -48,7 +48,7 @@ export default class Users {
   delete(id:string) {
 
     this.#toast.showSwal("Kullanıcıyı sil?", "Kullanıcıyı silmek istiyor musunuz?", "Sil", () => {
-      this.#http.delete(`api/users/${id}`).subscribe(() => {
+      this.#http.delete(`apiUrl/users/${id}`).subscribe(() => {
 
         this.result.reload()
 

@@ -1,5 +1,15 @@
 {
-  "users":[],
+  "users": [
+    {
+      "id": "55a1",
+      "firstName": "oz",
+      "lastName": "nmun",
+      "userName": "asofa",
+      "email": "ozgunm@gmail",
+      "password": "33",
+      "isAdmin": true
+    }
+  ],
   "products": [
     {
       "id": "av23",

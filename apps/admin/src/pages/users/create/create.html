@@ -1,1 +1,71 @@
-<p>create works!</p>
+<app-blank [pageTitle]="breadCrumbName()" [breadcrumbs]="[
+        {title: 'Kullanıcılar', url: '/users', icon: 'group'},
+        {title: breadCrumbName(), url: '/users/create', icon: id() ? 'edit':'add'}
+        ]" />
+
+<div class="row">
+
+    <div class="col-md-4 col-12">
+
+        <div class="card">
+
+            <div class="card-header">
+
+                <h4>{{cardTitle()}}</h4>
+
+            </div>
+
+            <div class="card-body">
+
+                <form #form="ngForm" autocomplete="off" (ngSubmit)="save(form)">
+                    <div class="form-group d-flex justify-content-end gap-2">
+                        <label class="form-check-label mt-1" for="isAdminCheckBox">Admin mi?</label>
+                        <div class="form-check form-switch">
+                        <input 
+                            class="form-check-input" 
+                            type="checkbox" 
+                            role="switch" 
+                            id="isAdminCheckBox" 
+                            [(ngModel)]="data().isAdmin"
+                            name="isAdmin" />
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <label>Kullanıcı Adı</label>
+                        <input [(ngModel)]="data().firstName" name="firstName" type="text" class="form-control" />
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <label>Kullanıcı Soyadı</label>
+                        <input [(ngModel)]="data().lastName" name="lastName" type="text" class="form-control" />
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <label>Login Adı</label>
+                        <input [(ngModel)]="data().userName" name="userName" type="text" class="form-control" />
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <label>Email Adresi</label>
+                        <input [(ngModel)]="data().email" name="email" type="email" class="form-control" />
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <label>Şifre</label>
+                        <input [(ngModel)]="data().password" name="password" type="password" class="form-control" />
+                    </div>
+
+                    <div class="form-group mt-2 d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary">{{ btnName() }}</button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
