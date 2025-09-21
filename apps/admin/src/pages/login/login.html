@@ -1,1 +1,55 @@
-<p>login works!</p>
+<title>e-Ticaret | Giriş Sayfası</title>
+<div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="login-container">
+        <div class="login-card">
+            <!-- Brand Section -->
+            <div class="brand-section">
+                <h1 class="brand-title">Giriş Yap</h1>
+                <p class="brand-subtitle mt-4">Giriş yapmak için bilgilerinizi giriniz.</p>
+            </div>
+
+            <!-- Login Form -->
+            <form #form="ngForm" (ngSubmit)="signIn(form)" autocomplete="off">
+                <div class="form-group">
+                    <label for="userName" class="form-label">Kullanıcı Adı</label>
+                    <div class="input-group">
+                        <span class="input-icon material-symbols-outlined">person</span>
+                        <input 
+                            ngModel
+                            type="userName" 
+                            class="form-control with-icon" 
+                            id="userName" 
+                            placeholder="Kullanıcı Adı"
+                            name="userName"
+                            required />
+                    </div>
+                </div>
+
+                <div class="form-group mt-3">
+                    <label for="password" class="form-label">Şifre</label>
+                    <div class="input-group">
+                        <span class="input-icon material-symbols-outlined">lock</span>
+                        
+                        <input 
+                            ngModel
+                            name="password"
+                            type="password" 
+                            class="form-control with-icon" 
+                            id="password"
+                            placeholder="Şifrenizi giriniz..." 
+                            required />
+
+                        <button type="button" class="password-toggle" onclick="togglePassword()">
+                            <span class="material-symbols-outlined">visibility</span>
+                        </button>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-login mt-5" id="loginBtn">
+                    <span class="btn-text">Giriş Yap</span>
+                </button>
+            </form>
+
+        </div>
+    </div>
+</div>
