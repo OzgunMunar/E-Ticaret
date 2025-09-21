@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component, computed, inject, resource, signal, ViewEncapsulation } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
-import { initialUser, UserModel } from '../users';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FlexiToastService } from 'flexi-toast';
 import { FormsModule, NgForm } from '@angular/forms';
+import { UserModel, initialUser } from "@/shared/user.model"
 import Blank from 'apps/admin/src/components/blank';
 
 @Component({

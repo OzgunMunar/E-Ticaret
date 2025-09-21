@@ -6,8 +6,8 @@ import Blank from 'apps/admin/src/components/blank';
 import { FlexiToastService } from 'flexi-toast';
 import { NgxMaskDirective } from 'ngx-mask';
 import { lastValueFrom } from 'rxjs';
-import { initialProduct, ProductModel } from '../products';
-import { CategoryModel } from '../../categories/categories';
+import { ProductModel, initialProduct } from "@/shared/product.model"
+import { CategoryModel } from "@/shared/category.model"
 import { FlexiSelectModule } from 'flexi-select';
 
 @Component({

@@ -5,8 +5,6 @@ import { Error } from '../services/error';
 import { FlexiToastService } from 'flexi-toast';
 
 export const errorInterceptor: HttpInterceptorFn = (req, next) => {
-  
-  // readonly #toast = inject(FlexiToastService)
 
   return next(req).pipe(
     catchError((err:HttpErrorResponse) => {

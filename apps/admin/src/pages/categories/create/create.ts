@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component,
   computed, inject, resource, signal, ViewEncapsulation } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import Blank from 'apps/admin/src/components/blank';
-import { CategoryModel, initialCategory } from '../categories';
+import { CategoryModel, initialCategory } from "@/shared/category.model"
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FlexiToastService } from 'flexi-toast';
