@@ -54,7 +54,7 @@ export default class Products {
       ({ name: val.name, value: val.name }))
 
     return filters
-
+    
   })
 
   delete(id?: number) {
