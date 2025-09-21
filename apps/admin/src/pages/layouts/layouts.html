@@ -22,8 +22,8 @@
                         <img src="https://mockmind-api.uifaces.co/content/human/80.jpg" alt="User Avatar">
                     </div>
                     <div class="d-flex flex-direction-column">
-                        <span class="d-none d-md-inline small-text">Jhon Doe</span>
-                        <span class="d-none d-md-inline small-x-text">dummymail@gmail.com</span>
+                        <span class="d-none d-md-inline small-text">{{user().firstName}} {{user().lastName}}</span>
+                        <span class="d-none d-md-inline small-x-text">{{user().email}}</span>
                     </div>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="userDropdown">
@@ -34,7 +34,7 @@
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item small-text" href="#"><span
+                    <li><a class="dropdown-item small-text" (click)="logout()"><span
                                 class="material-symbols-outlined me-2">logout</span>Logout</a></li>
                 </ul>
             </div>
@@ -91,7 +91,7 @@
                 <img src="https://mockmind-api.uifaces.co/content/human/80.jpg" alt="User Avatar">
             </div>
             <div class="user-info">
-                <span class="user-name">Jhon Doe</span>
+                <span class="user-name">{{user().firstName}} {{user().lastName}}</span>
             </div>
         </div>
 
@@ -127,7 +127,7 @@
             <a href="#" class="sticky-menu-item" title="Help">
                 <span class="material-symbols-outlined">help</span>
             </a>
-            <a routerLink="/" class="sticky-menu-item" title="Logout">
+            <a class="sticky-menu-item" title="Logout" (click)="logout()">
                 <span class="material-symbols-outlined">logout</span>
             </a>
         </div>

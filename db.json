@@ -2,10 +2,10 @@
   "users": [
     {
       "id": "55a1",
-      "firstName": "oz",
-      "lastName": "nmun",
+      "firstName": "Ozgun",
+      "lastName": "MUNAR",
       "userName": "ozg",
-      "email": "ozgunm@gmail",
+      "email": "ozgunm@gmail.com",
       "password": "33",
       "isAdmin": true
     }
