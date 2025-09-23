@@ -12,7 +12,12 @@ export const appRoutes: Route[] = [
             {
                 path: "products/:categoryKey",
                 loadComponent: () => import("./pages/home/home")
+            },
+            {
+                path: "auth",
+                loadChildren: () => import("./pages/auth/routes")
             }
+
         ]
     }
 ];

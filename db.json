@@ -8,6 +8,15 @@
       "email": "ozgunm@gmail.com",
       "password": "33",
       "isAdmin": true
+    },
+    {
+      "id": "c6aa",
+      "firstName": "Adiniz",
+      "lastName": "Soyadiniz",
+      "userName": "Kullanici Adi",
+      "email": "ornek@email.com",
+      "password": "sifre",
+      "isAdmin": false
     }
   ],
   "products": [
