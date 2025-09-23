@@ -20,14 +20,4 @@ export default class Layouts {
   readonly result = httpResource<CategoryModel[]>(() => "apiUrl/categories")
   readonly data = computed(() => this.result.value() ?? [])
 
-  constructor() {
-
-    effect(() => {
-
-      console.log(this.data())
-
-    })
-
-  }
-
 }

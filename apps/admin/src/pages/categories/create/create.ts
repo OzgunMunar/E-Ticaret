@@ -54,7 +54,10 @@ export default class CreateCategory {
 
   save(form: NgForm) {
 
-    if (!form.valid) return
+    if (!form.valid) {
+      this.#toast.showToast("Hata","Lütfen tüm alanları doldurun.","error")
+      return
+    }
     
     const { id, ...payload } = this.data()
 
@@ -63,7 +66,6 @@ export default class CreateCategory {
       this.#http.post("apiUrl/categories", payload)
         .subscribe((res) => {
 
-          console.log("yeni kategori", res)
           this.#toast.showToast("Başarılı", "Kategori kaydı başarılı.", "success")
           this.#router.navigateByUrl('/categories')
 

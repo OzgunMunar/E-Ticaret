@@ -1,19 +1,19 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { UserModel } from '@/shared/user.model';
+import { HttpClient } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component, inject, ViewEncapsulation } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { UserModel } from "@/shared/user.model"
+import { Router, RouterLink } from '@angular/router';
 import { FlexiToastService } from 'flexi-toast';
-import { Router } from '@angular/router';
 
 @Component({
   imports: [
-    FormsModule
+    FormsModule,
+    RouterLink
   ],
   templateUrl: './login.html',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-
 export default class Login {
 
   readonly #http = inject(HttpClient)
@@ -27,21 +27,22 @@ export default class Login {
       return
     }
 
-    const params = new HttpParams()
-      .set('userName', form.value['userName'])
-      .set('password', form.value['password']);
+    const userName = form.value['userName']
+    const password = form.value['password']
 
-    this.#http.get<UserModel[]>('apiUrl/users', { params }).subscribe((res) => {
+    this.#http.get<UserModel[]>(`apiUrl/users?userName=${userName}&password=${password}`)
+    .subscribe((res) => {
 
       if(res.length === 0) {
-        this.#toast.showToast("Hata","Kullanıcı adı veya şifre yanlış!","error")
+
+        this.#toast.showToast("Hata","Kullanıcı adı veya şifre yanlış","error")
         return
-      } else if(!res[0].isAdmin) {
-        this.#toast.showToast("Hata","Buraya giriş yapmaya yetkiniz yok.","error")
-        return
+
       }
 
-      localStorage.setItem("response", JSON.stringify(res[0]))
+      const user = res[0]
+      localStorage.setItem("response", JSON.stringify(user))
+
       this.#router.navigateByUrl("/")
 
     })

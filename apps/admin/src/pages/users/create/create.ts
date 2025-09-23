@@ -54,7 +54,10 @@ export default class Create {
 
   save(form: NgForm) {
 
-    if (!form.valid) return
+    if (!form.valid) {
+      this.#toast.showToast("Hata","Lütfen tüm alanları doldurun.","error")
+      return
+    }
 
     if (!this.id()) {
         this.#http.post("apiUrl/users", this.data()).subscribe((res) => {

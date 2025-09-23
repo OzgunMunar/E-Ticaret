@@ -23,7 +23,10 @@ export default class Register {
 
   signUp(form: NgForm) {
 
-    if(!form.valid) return
+    if(!form.valid) {
+      this.#toast.showToast("Hata","Lütfen tüm alanları doldurun.","error")
+      return
+    }
 
     this.data.update((prevVal) => ({
       ...prevVal

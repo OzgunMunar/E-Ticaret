@@ -64,6 +64,7 @@ export default class ProductCreate {
   save(form: NgForm) {
 
     if (!form.valid) {
+      this.#toast.showToast("Hata","Lütfen tüm alanları doldurun.","error")
       return
     }
 
