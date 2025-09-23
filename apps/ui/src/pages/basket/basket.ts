@@ -15,6 +15,19 @@ import { TrCurrencyPipe } from 'tr-currency';
 export default class Basket {
 
   readonly #common = inject(Common)
+  readonly total = computed(() => {
+    
+    let val = 0
+
+    this.data().forEach((res) => {
+
+      val += res.productPrice * res.quantity
+
+    })
+
+    return val
+
+  })
 
   readonly result = httpResource<BasketModel[]>(() => {
 
@@ -28,6 +41,11 @@ export default class Basket {
 
   })
 
+  readonly kdv = computed(() => {
+
+    return (this.total() * 0.18)
+
+  })
 
   readonly data = computed(() => this.result.value() ?? [])
 
