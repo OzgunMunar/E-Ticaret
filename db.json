@@ -144,29 +144,6 @@
     }
   ],
   "baskets": [
-    {
-      "id": "e20a",
-      "userId": "c6aa",
-      "productId": "ab12",
-      "productName": "MacBook Air M1",
-      "price": 50000,
-      "quantity": 1
-    },
-    {
-      "id": "a86a",
-      "userId": "c6aa",
-      "productId": "ab13",
-      "productName": "Apple Watch 8",
-      "price": 12000,
-      "quantity": 1
-    },
-    {
-      "id": "a232",
-      "userId": "c6aa",
-      "productId": "ab18",
-      "productName": "MacBook Air M3",
-      "price": 86000,
-      "quantity": 1
-    }
+    
   ]
 }

@@ -1,7 +1,7 @@
 import { BasketModel } from '@/shared/basket.model';
 import { UserModel } from '@/shared/user.model';
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable, signal } from '@angular/core';
+import { effect, inject, Injectable, signal } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +23,19 @@ export class Common {
 
     }
 
-    this.getBasketCount()
+    effect(() => {
+      
+      if(this.user()) {
+
+        this.getBasketCount()
+
+      } else {
+
+        this.basketCount.set(0)
+
+      }
+
+    })
     
   }
 

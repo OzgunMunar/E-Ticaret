@@ -3,6 +3,7 @@ export interface BasketModel {
     productId: string,
     productName: string,
     userId: string,
-    price: number,
-    quantity: number
+    productPrice: number,
+    quantity: number,
+    productImageUrl: string
 }

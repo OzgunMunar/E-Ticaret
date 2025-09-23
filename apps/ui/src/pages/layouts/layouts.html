@@ -11,17 +11,16 @@
             }
         </ul>
         <div class="nav-icons">
-            <i class="fas fa-search"></i>
-            <div style="position: relative;">
+            @if(user()) {
+            <div style="position: relative;" routerLink="/baskets">
                 <i class="fas fa-shopping-cart"></i>
                 @if(basketCount() > 0) {
-                    <div class="basket-count">{{ basketCount() }}</div>
+                <div class="basket-count">{{ basketCount() }}</div>
                 }
             </div>
-            @if(user()) {
-                <i class="fas fa-power-off" (click)="logOut()" title="Çıkış yap"></i>
+            <i class="fas fa-power-off" (click)="logOut()" title="Çıkış yap"></i>
             } @else {
-                <i class="fas fa-user" routerLink="/auth/login" title="Giriş yap"></i>
+            <i class="fas fa-user" routerLink="/auth/login" title="Giriş yap"></i>
             }
         </div>
     </div>

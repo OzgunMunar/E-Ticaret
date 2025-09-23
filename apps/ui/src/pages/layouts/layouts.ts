@@ -31,7 +31,6 @@ export default class Layouts {
     this.#common.user.set(undefined)
     this.#common.basketCount.set(0)
     this.#router.navigateByUrl("/auth/login")
-    
   }
 
 }

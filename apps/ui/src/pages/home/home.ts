@@ -88,8 +88,9 @@ export default class Home {
       userId: this.#common.user()!.id!,
       productId: data.id!,
       productName: data.name,
-      price: data.price,
-      quantity: 1
+      productPrice: data.price,
+      quantity: 1,
+      productImageUrl: data.imageUrl
 
     }
 

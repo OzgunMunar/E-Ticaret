@@ -10,8 +10,6 @@ export class Error {
   readonly #toast = inject(FlexiToastService)
 
   handle(err: HttpErrorResponse) {
-    
-    console.log(err)
 
     switch (err.status) {
       case 400:
