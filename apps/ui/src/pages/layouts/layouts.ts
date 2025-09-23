@@ -2,9 +2,11 @@ import { httpResource } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component, computed, effect, ViewEncapsulation } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { CategoryModel } from "@/shared/category.model"
+import { CommonModule } from '@angular/common';
 
 @Component({
   imports: [
+    CommonModule,
     RouterOutlet,
     RouterLink
   ],
@@ -17,5 +19,15 @@ export default class Layouts {
 
   readonly result = httpResource<CategoryModel[]>(() => "apiUrl/categories")
   readonly data = computed(() => this.result.value() ?? [])
+
+  constructor() {
+
+    effect(() => {
+
+      console.log(this.data())
+
+    })
+
+  }
 
 }

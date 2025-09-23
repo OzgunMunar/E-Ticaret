@@ -1,8 +1,10 @@
 export interface CategoryModel {
   id?: number,
-  name: string
+  name: string,
+  url: string
 }
 
 export const initialCategory: CategoryModel = {
-  name: ""
+  name: "",
+  url: ""
 }

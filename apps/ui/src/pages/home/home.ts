@@ -31,13 +31,11 @@ export default class Home {
 
       if (this.categoryKey()) {
 
-        endpoint += `categoryId=${this.categoryKey()}&`
+        endpoint += `categoryName=${this.categoryKey()}&`
 
       }
 
       endpoint += `_limit=${this.limit()}&_start=${this.start()}`
-
-      // const endpoint = `apiUrl/products?_limit=${this.limit()}&_start=${this.start()}`
       return endpoint
 
     });
