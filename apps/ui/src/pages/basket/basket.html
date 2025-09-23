@@ -18,19 +18,19 @@
                     <div class="cart-item">
                         <img [src]="val.productImageUrl" [alt]="val.productName">
                         <div class="item-details">
-                            <h3>{{ (val.productPrice * val.quantity) }}</h3>
+                            <h3>{{ val.productName }}</h3>
                             <div class="item-actions">
                                 <button class="remove-btn"><i class="fas fa-trash"></i> Kaldır</button>
                                 <button class="save-btn"><i class="fas fa-heart"></i> Favorilere Ekle</button>
                             </div>
                         </div>
                         <div class="quantity-controls">
-                            <button class="qty-btn minus">-</button>
+                            <button class="qty-btn minus" (click)="decrease(val)">-</button>
                             <span class="quantity">{{ val.quantity }}</span>
-                            <button class="qty-btn plus">+</button>
+                            <button class="qty-btn plus" (click)="increment(val)">+</button>
                         </div>
                         <div class="item-price">
-                            <span class="price">{{ val.productPrice | trCurrency: "₺": false}}</span>
+                            <span class="price">{{ val.productPrice * val.quantity | trCurrency: "₺": false}}</span>
                         </div>
                     </div>
 
