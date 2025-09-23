@@ -7,7 +7,7 @@
         <ul class="nav-menu">
             @for(category of data(); track category.id) {
             <li>
-                <a [routerLink]="['/',category.name]" class="nav-link">{{ category.name }}</a>
+                <a [routerLink]="['/', 'products', category.name]" class="nav-link">{{ category.name }}</a>
             </li>
             }
         </ul>

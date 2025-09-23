@@ -10,7 +10,7 @@ export const appRoutes: Route[] = [
                 loadComponent: () => import("./pages/home/home")
             },
             {
-                path: ":categoryKey",
+                path: "products/:categoryKey",
                 loadComponent: () => import("./pages/home/home")
             }
         ]
