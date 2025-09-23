@@ -9,6 +9,18 @@ export class Common {
   readonly data = signal<BreadCrumbModel[]>([])
   readonly user = signal<UserModel | undefined>(undefined)
 
+  constructor() {
+
+    const response: string | null = localStorage.getItem("response")
+
+    if (response) {
+
+      this.user.set(JSON.parse(response))
+
+    }
+
+  }
+
   set(data: BreadCrumbModel[]) {
 
     const val: BreadCrumbModel = {
@@ -16,7 +28,7 @@ export class Common {
       icon: "home",
       url: "/"
     }
-    
+
     this.data.set([val, ...data])
 
   }

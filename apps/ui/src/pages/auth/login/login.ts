@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component, inject, ViewEncapsulation } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { Common } from 'apps/ui/src/services/common';
 import { FlexiToastService } from 'flexi-toast';
 
 @Component({
@@ -19,6 +20,7 @@ export default class Login {
   readonly #http = inject(HttpClient)
   readonly #toast = inject(FlexiToastService)
   readonly #router = inject(Router)
+  readonly #common = inject(Common)
 
   signIn(form: NgForm) {
 
@@ -42,7 +44,7 @@ export default class Login {
 
       const user = res[0]
       localStorage.setItem("response", JSON.stringify(user))
-
+      this.#common.user.set(user)
       this.#router.navigateByUrl("/")
 
     })

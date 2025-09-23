@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component, computed, effect, inject, ViewEncap
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { CategoryModel } from "@/shared/category.model"
 import { CommonModule } from '@angular/common';
+import { Common } from '../../services/common';
 
 @Component({
   imports: [
@@ -20,10 +21,13 @@ export default class Layouts {
   readonly result = httpResource<CategoryModel[]>(() => "apiUrl/categories")
   readonly data = computed(() => this.result.value() ?? [])
   readonly #router = inject(Router)
+  readonly #common = inject(Common)
+  readonly user = computed(() => this.#common.user())
 
   logOut() {
 
     localStorage.clear()
+    this.#common.user.set(undefined)
     this.#router.navigateByUrl("/auth/login")
     
   }
