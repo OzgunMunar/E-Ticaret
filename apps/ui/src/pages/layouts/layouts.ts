@@ -1,11 +1,12 @@
 import { httpResource } from '@angular/common/http';
-import { ChangeDetectionStrategy, Component, computed, ViewEncapsulation } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { ChangeDetectionStrategy, Component, computed, effect, ViewEncapsulation } from '@angular/core';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { CategoryModel } from "@/shared/category.model"
 
 @Component({
   imports: [
-    RouterOutlet
+    RouterOutlet,
+    RouterLink
   ],
   templateUrl: './layouts.html',
   encapsulation: ViewEncapsulation.None,

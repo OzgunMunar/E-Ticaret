@@ -6,11 +6,9 @@
         </div>
         <ul class="nav-menu">
             @for(category of data(); track category.id) {
-                <li>
-                    <a href="#" class="nav-link">{{ category.name }}
-
-                    </a>
-                </li>
+            <li>
+                <a [routerLink]="['/',category.id]" class="nav-link">{{ category.name }}</a>
+            </li>
             }
         </ul>
         <div class="nav-icons">
@@ -34,10 +32,13 @@
             <div class="footer-section">
                 <h4>Kategoriler</h4>
                 <ul>
-                    <li><a href="#">Telefon</a></li>
-                    <li><a href="#">Laptop</a></li>
-                    <li><a href="#">Tablet</a></li>
-                    <li><a href="#">Aksesuar</a></li>
+                    @for(category of data(); track category.id) {
+                    <li>
+                        <a [routerLink]="['/','val.id']" class="nav-link">{{ category.name }}
+
+                        </a>
+                    </li>
+                    }
                 </ul>
             </div>
             <div class="footer-section">
