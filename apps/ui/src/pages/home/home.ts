@@ -4,6 +4,7 @@ import { ProductModel } from "@/shared/product.model"
 import { TrCurrencyPipe } from 'tr-currency'
 import { InfiniteScrollDirective } from 'ngx-infinite-scroll'
 import { ActivatedRoute } from '@angular/router';
+import { Common } from '../../services/common';
 
 @Component({
   imports: [
@@ -21,8 +22,12 @@ export default class Home {
   readonly start = signal<number>(0)
   readonly data = computed(() => this.result.value() ?? [])
   readonly dataSignal = signal<ProductModel[]>([])
-  readonly #activated = inject(ActivatedRoute)
   readonly categoryKey = signal<string | undefined>(undefined)
+
+  readonly #activated = inject(ActivatedRoute)
+  readonly #common = inject(Common)
+  
+  readonly user = computed(() => this.#common.user())
 
   readonly result = httpResource<ProductModel[]>(
     () => {
