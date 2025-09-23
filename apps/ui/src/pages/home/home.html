@@ -1,3 +1,4 @@
+<title>Tech Store | Ana Sayfa</title>
 <section class="hero">
     <div class="hero-content">
         <h1>En Yeni Teknoloji Ürünleri</h1>
@@ -17,7 +18,7 @@
                 <h3>{{item.name}}</h3>
                 <p class="price">{{item.price | trCurrency:'₺':false}}</p>
                 @if(user()) {
-                    <button class="add-to-cart">Sepete Ekle</button>
+                    <button class="add-to-cart" (click)="addBasket(item)">Sepete Ekle</button>
                 }
             </div>
 

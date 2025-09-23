@@ -3102,3 +3102,18 @@ hr {
         opacity: 0.2;
     }
 }
+
+.basket-count {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    font-size: 10px;
+    text-align: center;
+    line-height: 16px;
+    font-weight: bold;
+}

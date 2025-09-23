@@ -23,11 +23,13 @@ export default class Layouts {
   readonly #router = inject(Router)
   readonly #common = inject(Common)
   readonly user = computed(() => this.#common.user())
+  readonly basketCount = computed(() => this.#common.basketCount())
 
   logOut() {
 
     localStorage.clear()
     this.#common.user.set(undefined)
+    this.#common.basketCount.set(0)
     this.#router.navigateByUrl("/auth/login")
     
   }
