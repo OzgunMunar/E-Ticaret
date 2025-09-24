@@ -143,7 +143,35 @@
       "name": "Telefon"
     }
   ],
-  "baskets": [],
+  "baskets": [
+    {
+      "id": "2e64",
+      "userId": "c6aa",
+      "productId": "ab16",
+      "productName": "Apple Watch 9",
+      "productPrice": 16700,
+      "quantity": 1,
+      "productImageUrl": "https://www.beko.com.tr/media/resize/9241641600_LO1_20240912_164634.png/2000Wx2000H/image.webp"
+    },
+    {
+      "id": "dc3e",
+      "userId": "c6aa",
+      "productId": "ab13",
+      "productName": "Apple Watch 8",
+      "productPrice": 12000,
+      "quantity": 1,
+      "productImageUrl": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/s11-case-unselect-gallery-1-202509?wid=5120&hei=3280&fmt=p-jpg&qlt=80&.v=WldDSmZlQ1ladGVha0lMWUJJK2M4ZHlVRllKam5abHNZRGludXlMbytKNUs0VDVpelJQc3lnS0NUUk44L0hxRlBPMVJocHRGWWdEaGFBbE5iRklMb1V1bEhkTE9wTm5MUHB5UTNxanYrU1FLWlhDb1MwbzRvVW12NWFVYzREWFg"
+    },
+    {
+      "id": "dd68",
+      "userId": "c6aa",
+      "productId": "ab22",
+      "productName": "Apple Watch 11",
+      "productPrice": 36800,
+      "quantity": 1,
+      "productImageUrl": "https://cdn.dsmcdn.com/mnresize/620/920/ty1007/product/media/images/prod/PIM/20230929/05/716f2e87-f5f9-47fe-bf65-158f06eec17e/1_org_zoom.jpg"
+    }
+  ],
   "orders": [
     {
       "id": "8343",

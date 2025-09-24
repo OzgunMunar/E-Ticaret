@@ -9,7 +9,6 @@ import { FlexiToastService } from 'flexi-toast';
 import { DatePipe } from '@angular/common';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
-
 @Component({
   imports: [
     TrCurrencyPipe,
@@ -23,6 +22,7 @@ import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
+
 export default class Payment {
 
   readonly result = httpResource<BasketModel[]>(() => {
@@ -33,6 +33,7 @@ export default class Payment {
 
   readonly baskets = computed(() => this.result.value() ?? [])
   readonly data = signal<OrderModel>({...initialOrder})
+  readonly term = signal<boolean>(false)
 
   readonly #common = inject(Common)
   readonly #toast = inject(FlexiToastService)
@@ -60,6 +61,11 @@ export default class Payment {
   })
 
   pay(form: NgForm) {
+
+    if(!this.term()) {
+      this.#toast.showToast("Uyari", "Lütfen kullanım koşullarını kabul edin.", "info")
+      return
+    }
 
     if (!form.valid) {
 
