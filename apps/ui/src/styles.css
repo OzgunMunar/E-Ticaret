@@ -3121,3 +3121,8 @@ hr {
 .cursor {
     cursor: pointer;
 }
+
+.city-select.flexi-select-search-input, .flexi-select-div {
+    height: 47px;
+    font-size: 15px !important;
+}
