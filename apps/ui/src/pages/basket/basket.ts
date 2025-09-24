@@ -4,10 +4,12 @@ import { Common } from '../../services/common';
 import { BasketModel } from '@/shared/basket.model';
 import { TrCurrencyPipe } from 'tr-currency';
 import { FlexiToastService } from 'flexi-toast';
+import { RouterLink } from '@angular/router';
 
 @Component({
   imports: [
-    TrCurrencyPipe
+    TrCurrencyPipe,
+    RouterLink
   ],
   templateUrl: './basket.html',
   encapsulation: ViewEncapsulation.None,
@@ -16,6 +18,19 @@ import { FlexiToastService } from 'flexi-toast';
 export default class Basket {
 
   readonly #common = inject(Common)
+  
+  readonly result = httpResource<BasketModel[]>(() => {
+
+    const user = this.#common.user()
+
+    if (!user) {
+      return undefined
+    }
+
+    return `apiUrl/baskets?userId=${user.id}`
+
+  })
+
   readonly total = computed(() => {
 
     let val = 0
@@ -27,18 +42,6 @@ export default class Basket {
     })
 
     return val
-
-  })
-
-  readonly result = httpResource<BasketModel[]>(() => {
-
-    const user = this.#common.user()
-
-    if (!user) {
-      return undefined
-    }
-
-    return `apiUrl/baskets?userId=${user.id}`
 
   })
 
