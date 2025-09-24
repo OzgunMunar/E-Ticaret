@@ -22,6 +22,5 @@ export const appConfig: ApplicationConfig = {
     provideRouter(appRoutes),
     { provide: LOCALE_ID, useValue: 'tr' },
     provideHttpClient(withInterceptors([endpointInterceptor, errorInterceptor])),
-    provideNgxMask()
   ],
 };
